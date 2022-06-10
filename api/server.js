@@ -3,9 +3,11 @@ const bodyParser = require('body-parser');
 const { createServer } = require('http');
 const { ApolloServer } = require('apollo-server-express');
 const cors = require('cors');
+// GRAPHQL
 const typeDefs = require('../graphql/schemas');
 const resolvers = require('../graphql/resolvers');
 const context = require('../graphql/context');
+// REST
 const routes = require('../rest/routes');
 
 const app = express();

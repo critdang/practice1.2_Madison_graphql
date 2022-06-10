@@ -2,11 +2,11 @@ const { gql } = require('apollo-server-express');
 
 module.exports = gql`
 
- type User {
+ type Client {
      id: Int!
      email: String!
      password: String!
-     firstName: String
+     firstName: String!
      lastName: String
      phoneNumber: String
      age: Int
@@ -15,13 +15,13 @@ module.exports = gql`
  }
 
  extend type Mutation {
-     register(input: RegisterInput!): RegisterResponse
-     login(input: LoginInput!): LoginResponse
-     update(input: UpdateInput!): UpdateResponse
-     delete(input: DeleteInput!): DeleteResponse
+     registerClient(input: RegisterClientInput!): RegisterClientResponse
+     loginClient(input: LoginClientInput!): LoginClientResponse
+     updateClient(input: UpdateClientInput!): UpdateClientResponse
+     deleteClient(input: DeleteClientInput!): DeleteClientResponse
  }
 
- type RegisterResponse {
+ type RegisterClientResponse {
     id: Int!
     email: String!
     firstName: String
@@ -31,7 +31,7 @@ module.exports = gql`
     avatar: String
  }
 
- input RegisterInput {
+ input RegisterClientInput {
      email: String!
      password: String!
      firstName: String
@@ -41,37 +41,37 @@ module.exports = gql`
      avatar: String
  }
 
- input LoginInput {
+ input LoginClientInput {
      email: String!
      password: String!
  }
 
- type LoginResponse {
+ type LoginClientResponse {
     id: Int!
     name: String!
     email: String!
     token: String!
  }
 
- input UpdateInput {
+ input UpdateClientInput {
     firstName: String!,
     lastName: String,
     phoneNumber: String
     age: Int
  }
 
- type UpdateResponse {
+ type UpdateClientResponse {
     firstName: String!,
     lastName: String!,
     phoneNumber: String!
     age: Int!
  }
 
- input DeleteInput {
+ input DeleteClientInput {
     id: Int!
  }
 
- type DeleteResponse {
+ type DeleteClientResponse {
     firstName: String!,
     lastName: String!,
     phoneNumber: String!,

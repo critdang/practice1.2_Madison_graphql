@@ -1,6 +1,8 @@
-
+const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const AppError = require('./errorHandle/appError');
+const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 exports.generateToken = (key,time) => {
@@ -31,14 +33,15 @@ exports.sendEmail = async (
     token = ''
 ) => {
     // const domain = `http:127.0.0.1:5000`;
-    const domain = `http://localhost:8080`;
+    const domain = `http://localhost:3301`;
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: "smtp.mailtrap.io",
+      port: 2525,
       auth: {
-        user : process.env.EMAIL,
-        pass: process.env.EMAIL_PASSWORD,
-      },
+        user: "f9999a9d83c0de",
+        pass: "73c5a0ebe473b0"
+      }
     });
     const mailOption = {
       from: process.env.EMAIL,

@@ -1,0 +1,36 @@
+# Write your query or mutation here
+mutation login{
+  login(input:{email:"crit",password:"123456"}) {
+    id
+    email
+    token
+  }
+}
+
+# Write your query or mutation here
+mutation createPost{
+  createPost(title:"new Post",content:"New post") {
+    id
+    title
+    content
+  }
+}
+
+mutation update{
+  update(input:{firstName:"Dai",lastName:"Nguyen",phoneNumber:"789456",age:19}){
+    firstName
+    lastName
+    phoneNumber
+    age
+  }
+}
+
+HTTP Headers
+{
+  "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0NTk1NTUwLCJleHAiOjE2NTQ2ODE5NTB9.tetTqmGBrzxHlmxXvxI7T5dJpfjQyluOQl5NFYgOkbk"
+}
+How to verify user email while using GraphQl and Node.js:
+https://stackoverflow.com/questions/55530949/how-to-verify-user-email-while-using-graphql-and-node-js
+
+Request and Respond in GraphQL:
+https://dgraph.io/docs/graphql/api/requests/

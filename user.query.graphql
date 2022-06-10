@@ -1,0 +1,39 @@
+	# Write your query or mutation here
+mutation login{
+  login(input:{email:"crit",password:"123456"}) {
+    id
+    email
+    token
+  }
+}
+
+# Write your query or mutation here
+mutation createPost{
+  createPost(title:"new Post",content:"New post") {
+    id
+    title
+    content
+  }
+}
+
+mutation update{
+  update(input:{firstName:"Dai",lastName:"Nguyen",phoneNumber:"789456",age:19}){
+    firstName
+    lastName
+    phoneNumber
+    age
+  }
+}
+mutation register{
+	register(input:{email:"dai",password:"nguyen"}) {
+    id
+    email
+  }  
+}
+
+mutation delete{
+  delete(input:{id:5}) {
+    firstName
+    lastName
+  }
+}
